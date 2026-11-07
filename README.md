@@ -15,7 +15,19 @@
 
 **[▶ Open ProHealth in your browser](https://sandeepariyar.github.io/ProHealth-Interactive-3D-Human-Anatomy-Healthcare-Learning-Platform/)** — interactive 3D anatomy explorer; no installation required.
 
-![ProHealth visual design](docs/visual-direction.jpg)
+## Interface previews
+
+**Dark mode — interactive 3D anatomy inspection**
+
+![ProHealth dark-mode anatomy explorer with a selected coronary artery and structure controls](docs/screenshots/prohealth-dark.webp)
+
+**Light mode — cardiac anatomy explorer**
+
+![ProHealth light-mode anatomy explorer showing the 3D heart, synthetic ECG and reference guide](docs/screenshots/prohealth-light.webp)
+
+> These are actual application screenshots. The heart animation and ECG are illustrative; ProHealth is an educational visualization prototype, not a clinical tool.
+
+
 
 ## Overview
 
