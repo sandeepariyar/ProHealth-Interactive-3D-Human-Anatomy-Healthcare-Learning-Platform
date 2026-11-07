@@ -26,10 +26,21 @@ jobs:
         with:
           node-version: '22'
           cache: npm
-      - uses: actions/configure-pages@v5
       - run: npm ci
+      - run: node scripts/validate-project.mjs
       - run: npm run assets:verify
       - run: npm run build
+      - name: Verify published anatomy models
+        run: |
+          test -s dist/index.html
+          for model in skeletal muscular visceral cardiovascular joints nervous lymphatic; do
+            test -s "dist/models/z-anatomy/$model.glb"
+          done
+          test -s dist/draco/draco_decoder.wasm
+          du -sh dist
+      # Build/asset verification deliberately precedes Pages configuration, so
+      # CI can validate the application even before Pages is enabled manually.
+      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
