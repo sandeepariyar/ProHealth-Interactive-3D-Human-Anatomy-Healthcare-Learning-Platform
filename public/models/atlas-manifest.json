@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "dataset": "Z-Anatomy / BodyParts3D",
+  "systems": ["skeletal", "muscular", "visceral", "cardiovascular", "nervous", "joints", "lymphatic"],
+  "format": "Draco GLB, one registered source body",
+  "source": "https://github.com/nqwrc/3d-anatomy",
+  "modelLicense": "CC BY-NC-SA 4.0 (combined upstream distribution)",
+  "distribution": "auto-download on npm install; remote fallback",
+  "note": "The models are actual segmented human anatomical geometry, not patient CT/MRI scans."
+}

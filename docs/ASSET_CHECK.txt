@@ -1,0 +1,10 @@
+Draco decoder copy skipped: ENOENT: no such file or directory, copyfile '/mnt/data/prohealth-next/node_modules/three/examples/jsm/libs/draco/draco_decoder.wasm' -> '/mnt/data/prohealth-next/public/draco/draco_decoder.wasm'
+✗ skeletal: not cached
+✗ muscular: not cached
+✗ visceral: not cached
+✗ cardiovascular: not cached
+✗ nervous: not cached
+✗ joints: not cached
+✗ lymphatic: not cached
+Anatomy assets ready: 0/7.
+Local atlas incomplete. The application also attempts browser-hosted atlas URLs at runtime.

@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {recordView,viewKey} from '../src/data/history.ts';
+const view={organ:'body',mode:'tissue',quality:'balanced',layers:{shell:true,skeleton:true,organs:true}};
+let history=recordView([],view,1);
+assert.equal(recordView(history,view,2),history,'No consecutive duplicates');
+view.layers.shell=false;
+assert.equal(history[0].layers.shell,true,'Snapshots do not share mutable layer objects');
+history=recordView(history,{...view,organ:'heart'},1);
+assert.notEqual(history[0].id,history[1].id,'Unique IDs for same-millisecond changes');
+assert.notEqual(viewKey(history[0]),viewKey(history[1]));
+for(let i=0;i<100;i++)history=recordView(history,{...view,organ:i%2?'lungs':'brain'},i+2);
+assert.equal(history.length,40,'Bounded session history');
+console.log('PASS: history deduplication, snapshot isolation, unique IDs and 40-entry cap.');

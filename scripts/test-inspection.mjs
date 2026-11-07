@@ -1,0 +1,40 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {INSPECTION_SYSTEMS,canInspect,landmarkStructures} from '../src/data/inspection.ts';
+import {coronaryStoryParts} from '../src/data/conditions.ts';
+import {pickCandidates} from '../src/scene/picking.ts';
+import {viewKey,recordView} from '../src/data/history.ts';
+import {atlasOwner} from '../src/scene/atlasOwner.ts';
+import {cameraProgress} from '../src/scene/cameraTransition.ts';
+assert.equal(cameraProgress(1000,3000,1250),1,'A delayed frame must complete the transition rather than extending its duration');
+assert.equal(cameraProgress(1000,1000,0),1,'Reduced motion snaps to the target');
+assert.equal(cameraProgress(1000,1625,1250),.5);
+const named={parent:null,userData:{za_name:'Femur.l'},name:'Femurl'};
+const primitiveA={parent:named,userData:{},name:'Femur_fragment'},primitiveB={parent:named,userData:{},name:'Femur_fragment_1'};
+assert.equal(atlasOwner(primitiveA),named);assert.equal(atlasOwner(primitiveB),named,'All material primitives must retain one atlas identity, including laterality');
+assert.equal(atlasOwner({...primitiveA,parent:null}).name,'Femur_fragment','Fallback only when a source identity does not exist');
+let catalog=[];
+for(const system of INSPECTION_SYSTEMS){
+ const bytes=readFileSync(new URL(`../public/models/z-anatomy/${system}.glb`,import.meta.url));
+ const gltf=JSON.parse(bytes.subarray(20,20+bytes.readUInt32LE(12)).toString());
+ const parts=gltf.nodes.filter(n=>n.mesh!==undefined).map((n,i)=>({id:catalog.length+i+1,key:`${system}/${i}`,system,name:n.extras?.za_name||n.name,region:null,min:[0,0,0],max:[1,1,1],anchor:[.5,.5,1]}));
+ catalog.push(...parts);
+ const pins=landmarkStructures(parts,system);
+ assert.ok(pins.length>=3,`${system} must resolve at least three real landmarks`);
+ assert.equal(new Set(pins.map(p=>p.key)).size,pins.length);
+ for(const other of INSPECTION_SYSTEMS){assert.equal(canInspect(other,null,'body',system,true),other===system);assert.equal(canInspect(other,null,'body',system,false),false);}
+ assert.ok(pins.every(p=>p.system===system));
+ console.log(`${system}: ${pins.length} source-backed presets`);
+}
+const surface={visible:true,opacity:1,ghost:false,region:null};
+const hits=[{...surface,id:1,system:'muscular',value:'covering muscle'},{...surface,id:2,system:'skeletal',value:'bone'}];
+assert.deepEqual(pickCandidates(hits,'body',null,'skeletal'),['bone'],'A covering active-looking muscle must not intercept the bone layer');
+assert.deepEqual(pickCandidates(hits,'body',null,'nervous'),[],'No eligible hit must not fall through to another layer');
+for(const step of [0,1])assert.equal(coronaryStoryParts(catalog,step).length,4,'Both story stages must resolve four real source structures');
+assert.deepEqual(coronaryStoryParts(catalog,2),[],'Symptoms must not fabricate an affected tissue territory');
+assert.deepEqual(coronaryStoryParts([],0),[],'Missing anatomy must not create surrogate structures');
+const view={organ:'body',mode:'tissue',quality:'balanced',layers:{shell:true,skeleton:true,organs:true},activeSystem:'nervous',contextVisible:false};
+assert.notEqual(viewKey(view),viewKey({...view,activeSystem:'skeletal'}));
+assert.notEqual(viewKey(view),viewKey({...view,contextVisible:true}));
+assert.equal(recordView([],view,1)[0].activeSystem,'nervous');
+console.log('PASS: all seven active layers, real landmark resolution, covering-surface rejection, condition targets and restoration metadata.');

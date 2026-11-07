@@ -1,0 +1,27 @@
+  ✓ src/App.tsx imports ./components/Stage
+  ✓ src/App.tsx imports ./components/Sidebar
+  ✓ src/App.tsx imports ./data/clinical
+  ✓ src/components/Sidebar.tsx imports ../data/clinical
+  ✓ src/components/Sidebar.tsx imports ../data/clinical
+  ✓ src/components/Stage.tsx imports ../data/clinical
+  ✓ src/components/Stage.tsx imports ../data/clinical
+  ✓ src/components/Stage.tsx imports ../scene/BodyAtlas
+  ✓ src/main.tsx imports ./App
+  ✓ src/main.tsx imports ./styles/app.css
+  ✓ src/scene/BodyAtlas.tsx imports ../data/clinical
+  ✓ src/scene/BodyAtlas.tsx imports ./anatomy
+  ✓ src/scene/BodyAtlas.tsx imports ./RealAtlas
+  ✓ src/scene/RealAtlas.tsx imports ../data/clinical
+  ✓ src/scene/RealAtlas.tsx imports ./shaders
+  ✓ src/scene/RealAtlas.tsx imports ./anatomy
+  ✓ src/scene/anatomy.ts imports ../data/clinical
+  ✓ src/scene/shaders.ts imports ../data/clinical
+  ✓ Draco real-model loader configured
+  ✓ Multi-system anatomical atlas configured
+  ✓ Primitive organ placeholder removed
+  ✓ Automated anatomical asset downloader present
+  ✓ Anatomical attribution/notice present
+  ✓ Research and rendering roadmap present
+  ✓ Reduced-motion CSS present
+
+Static checks: PASS (0 issues)

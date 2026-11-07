@@ -1,0 +1,28 @@
+{
+  "file": "/mnt/data/prohealth-next/public/models/lungs-hubmap-reference.glb",
+  "bytes": 10942332,
+  "version": 2,
+  "meshes": 58,
+  "nodes": 77,
+  "scenes": [
+    "(unnamed scene)"
+  ],
+  "materials": 6,
+  "sampleNodes": [
+    "VH_M_respiratory_system",
+    "VH_M_lungs",
+    "VH_M_lungs_L",
+    "VH_M_hilum_L",
+    "VH_M_lungs_L_upper_lobe",
+    "VH_M_hilum_upper_L",
+    "VH_M_left_lingula_superior_bronchopulmonary_segment",
+    "VH_M_left_posterior_bronchopulmonary_segment",
+    "VH_M_left_anterior_bronchopulmonary_segment",
+    "VH_M_left_apical_bronchopulmonary_segment",
+    "VH_M_left_lingula_inferior_bronchopulmonary_segment",
+    "VH_M_lungs_L_lower_lobe",
+    "VH_M_hilum_lower_L",
+    "VH_M_left_anterior_basal_bronchopulmonary_segment",
+    "VH_M_left_lateral_basal_bronchopulmonary_segment"
+  ]
+}
