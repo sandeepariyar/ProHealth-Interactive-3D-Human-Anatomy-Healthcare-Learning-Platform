@@ -29,6 +29,7 @@ jobs:
       - run: npm ci
       - run: node scripts/validate-project.mjs
       - run: npm run assets:verify
+      - run: npm test
       - run: npm run build
       - name: Verify published anatomy models
         run: |

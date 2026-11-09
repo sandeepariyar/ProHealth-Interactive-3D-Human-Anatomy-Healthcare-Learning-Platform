@@ -11,7 +11,8 @@
     "audit:assets": "node scripts/inspect-asset.mjs",
     "postinstall": "node scripts/download-anatomy.mjs",
     "assets:download": "node scripts/download-anatomy.mjs",
-    "assets:verify": "node scripts/download-anatomy.mjs --verify"
+    "assets:verify": "node scripts/download-anatomy.mjs --verify",
+    "test": "node scripts/run-unit-tests.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.8",
