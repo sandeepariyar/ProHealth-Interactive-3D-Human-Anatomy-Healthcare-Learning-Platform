@@ -15,6 +15,22 @@
 
 **[▶ Open ProHealth in your browser](https://sandeepariyar.github.io/ProHealth-Interactive-3D-Human-Anatomy-Healthcare-Learning-Platform/)** — interactive 3D anatomy explorer; no installation required.
 
+## Design exploration in Figma
+
+**[Open the ProHealth design boards](https://www.figma.com/design/3rwlPVPyHmA87BmxGuIZQx)** — view-only access for anyone with the link.
+
+The boards reverse-engineer the working application and explore its visual foundations, interface states, and design decisions.
+
+- [Inspiration & research](https://www.figma.com/design/3rwlPVPyHmA87BmxGuIZQx?node-id=22-2)
+- [Colors & themes](https://www.figma.com/design/3rwlPVPyHmA87BmxGuIZQx?node-id=21-2)
+- [Buttons & states](https://www.figma.com/design/3rwlPVPyHmA87BmxGuIZQx?node-id=23-2)
+- [Component patterns](https://www.figma.com/design/3rwlPVPyHmA87BmxGuIZQx?node-id=24-2)
+- [Anatomy navigation](https://www.figma.com/design/3rwlPVPyHmA87BmxGuIZQx?node-id=27-2)
+- [Logo & identity](https://www.figma.com/design/3rwlPVPyHmA87BmxGuIZQx?node-id=28-2)
+- [Typography & text styles](https://www.figma.com/design/3rwlPVPyHmA87BmxGuIZQx?node-id=29-2)
+
+These are editable visual specifications and design proposals, not a published component library or a fully wired Figma prototype. The live application remains the interactive demonstration.
+
 ## Interface previews
 
 **Dark mode — interactive 3D anatomy inspection**
