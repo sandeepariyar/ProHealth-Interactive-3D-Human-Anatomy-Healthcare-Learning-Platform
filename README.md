@@ -31,6 +31,14 @@ The boards reverse-engineer the working application and explore its visual found
 
 These are editable visual specifications and design proposals, not a published component library or a fully wired Figma prototype. The live application remains the interactive demonstration.
 
+### Design-to-development process
+
+I started with an earlier design in Figma, then developed ProHealth into an interactive anatomy-learning prototype using React, TypeScript, Three.js and WebGL. The interface brings together anatomical exploration, structure selection, camera focus, isolation and session history.
+
+I later revisited the working application to reconstruct and expand its Figma documentation: visual directions, color themes, button states, component patterns, anatomy navigation, logo treatments and typography. The linked boards document this later design exploration rather than the original Figma file.
+
+This process connects interface design with implementation decisions and complex system behavior, including selection resets, restoration of previous views, rendering preferences and recovery states.
+
 ## Interface previews
 
 **Dark mode — interactive 3D anatomy inspection**
